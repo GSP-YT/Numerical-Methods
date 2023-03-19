@@ -24,7 +24,10 @@ int main(){
     }
     // Gauss-Jordan
     for(int n=0;n<i;n++){
-        for(int m=n+1;m<i;m++){
+        for(int m=0;m<i;m++){
+            if(n==m || e[n][m]==0.0 || e[n][m]==-0.0){
+                continue;
+            }
             float fact = e[m][n]/e[n][n];
             printf("Factor - %f\n", fact);
             for(int l=0;l<j;l++){
