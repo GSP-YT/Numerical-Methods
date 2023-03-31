@@ -1,20 +1,24 @@
 #include<stdio.h>
 int main(){
     int i,j,a,d;
-    // printf("Enter Number Of Equations : ");
-    // scanf("%d", &i);
-    i=3;
+    printf("Enter Number Of Equations : ");
+    scanf("%d", &i);
+//     i=4;
     j=i+1;
-    // float e[i][j];
+    float e[i][j];
     // float e[3][4]={{9.0,5.0,3.0,4.0},{3.0,7.0,1.0,5.0},{3.0,0.0,5.0,8.0}};
-    float e[3][4]={9, 1 ,2 ,3 ,4 , 5 , 6 , 7 , 8 , 9 , 10 , 11};
-    // for(int n=0;n<i;n++){
-    //     printf("Enter Equation %d : \n", n+1);
-    //     for(int m=0;m<j;m++){
-    //         printf("Enter Coefficient Of x%d : ", m+1);
-    //         scanf("%f", &e[n][m]);
-    //     }
-    // }
+    // float e[3][4]={9, 1 ,2 ,3 ,4 , 5 , 6 , 7 , 8 , 9 , 10 , 11};
+//     float e[4][5]={10.000000   ,    -1.000000   ,    2.000000   ,     0.000000    ,    6.000000,
+//                     -1.000000  ,     11.000000   ,    -1.000000   ,    3.000000     ,   25.000000,
+//                     2.000000   ,      -1.000000    ,   10.000000   ,    -1.000000   ,    -11.000000,
+//                     0.000000   ,     3.000000     ,   -1.000000    ,   8.000000    ,    15.000000 };
+    for(int n=0;n<i;n++){
+        printf("Enter Equation %d : \n", n+1);
+        for(int m=0;m<j;m++){
+            printf("Enter Coefficient Of x%d : ", m+1);
+            scanf("%f", &e[n][m]);
+        }
+    }
     printf("Entered Equations : \n");
     for(int n=0;n<i;n++){
         for(int m=0;m<j;m++){
@@ -28,7 +32,7 @@ int main(){
         y[m]=0;
     }
     printf("X1\t\tX2\t\tX3\n");
-    for(int q=0;q<10;q++){
+    for(;;){
         for(int n=0;n<i;n++){
             int m=0;
             for(m=0;m<j-1;m++){
@@ -43,7 +47,12 @@ int main(){
             printf("%f\t", x[n]);
         }
         printf("\n");
-        if(x[i-1]==y[i-1]){
+        if(y[0]-x[0]>0){
+            if(y[0]-x[0]<0.000001)
+            break;
+        }
+        else{
+            if(y[0]-x[0]>-0.000001)
             break;
         }
         for(int m=0;m<i;m++){
